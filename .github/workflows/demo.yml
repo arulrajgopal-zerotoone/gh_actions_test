@@ -1,19 +1,19 @@
-name: Echo Variable
+name: Echo Variables
 
 on:
   push:
     branches:
-      - main  
+      - main  # Change this to your default branch if it's different.
 
 jobs:
-  echo-variable:
+  echo-variables:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Echo Variable Name and Value
+      - name: Echo Secrets and Variables
         run: |
-          echo "Variable Name: MY_VARIABLE"
-          echo "Variable Value: ${{ vars.MY_VARIABLE }}"
+          echo "Secret from GitHub Secrets: ${{ secrets.MY_SECRET }}"
+          echo "Variable from GitHub Variables: ${{ vars.MY_VARIABLE }}"
